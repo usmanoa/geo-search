@@ -1,0 +1,35 @@
+.form {
+    width: 100%;
+}
+
+.form__search-box {
+    position: relative;
+}
+.form__input-search {
+    outline: none;
+    border-radius: 15px;
+    border: 2px solid #DADADA;
+    color: #333333;
+    font-size: 17px;
+    padding: 10px 10px 10px 35px;    
+    width: 100%;
+}
+
+.form__input-search:hover {
+    transition: all 0.30s ease-in-out;
+    border-color: #E3E8EE;
+    box-shadow: 0 0 10px #E3E8EE;
+}
+
+.form__input-search:focus {
+    transition: all 0.30s ease-in-out;
+    border-color: #9ECAED;
+    box-shadow: 0 0 10px #9ECAED;
+}
+
+.form__search-icon {
+    color: #9E9EA7;
+    position: absolute;
+    left: 10px;
+    top: 13px;
+}
