@@ -1,13 +1,14 @@
-body {
+.body {
     margin: 0px;
 }
 
 .form {
-    width: 70%;
-    margin: 2rem 2rem;
+    padding: 2rem 2rem;
+    background-image: linear-gradient(#2D3A42, #6D8297);
 }
 
 .form__search-box {
+    width: 70%;
     position: relative;
 }
 .form__input-search {
@@ -40,8 +41,14 @@ body {
 }
 
 .map {
-    margin: 1rem 0rem;
     width: 100%;
     height: 400px;
     background-color: #F4F4F4;
+}
+
+.weather {
+    height: 400px;
+    width: 100%;
+    background-image: url("../assets/weather.jpg");
+    background-position: bottom;
 }
