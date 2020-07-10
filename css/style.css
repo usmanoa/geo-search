@@ -80,7 +80,7 @@
     text-align: center;
 }
 
-.weather__change-temp-unit {
+.weather__temp-converter {
     margin-top: 10px;
     border-radius: 7px;
     border-width: 2px;
@@ -88,7 +88,7 @@
     padding: 2px 10px;
 }
 
-.weather__change-temp-unit:hover {
+.weather__temp-converter:hover {
     transition: all 0.30s ease-in-out;
     color: #FFFFFF;
     background-color: transparent;
@@ -101,7 +101,7 @@
 }
 
 .weather__reading {
-    padding: 15px 5px;
+    padding: 15px 10px;
 }
 
 .weather_condition {
@@ -123,3 +123,6 @@
     font-size: 1.2rem;
 }
 
+.weather__unit {
+    font-size: 14px; 
+ }
