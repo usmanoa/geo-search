@@ -47,8 +47,64 @@
 }
 
 .weather {
-    height: 400px;
     width: 100%;
     background-image: url("../assets/weather.jpg");
     background-position: bottom;
+    padding-bottom: 2rem;
 }
+
+.weather__city {
+    display: flex;
+    justify-content: center;
+}
+
+.weather__city-name {
+    color: #F4F4F4;
+    font-size: 1.2rem;
+}
+
+.weather__info-box {
+    border: 0px solid #F4F4F4;
+    border-radius: 10px;
+    width: 70%;
+    margin: 0rem auto;
+    color: #FFFFFF;
+    background-color: #292F3B;
+    opacity: 0.8;
+    padding: 10px;
+}
+
+.weather__description {
+    margin: 5px;
+    text-align: center;
+}
+
+.weather__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather__reading {
+    padding: 5px;
+}
+
+.weather_condition {
+    display: flex;
+}
+
+.weather__icon {
+    height: 30px;
+    width: 30px;
+}
+
+.weather__value-unit {
+    padding-left: 5px;
+    font-size: 1.3rem;
+    /* line-height: 1.3rem; */
+}
+
+.weather__label {
+    margin: 0px;
+    padding: 5px 0px;
+}
+
