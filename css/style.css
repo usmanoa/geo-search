@@ -3,41 +3,43 @@
 }
 
 .form {
-    padding: 2rem 2rem;
-    background-image: linear-gradient(#2D3A42, #6D8297);
+    padding: 2rem 1rem;
 }
 
 .form__search-box {
     width: 70%;
-    position: relative;
+    /* position: relative; */
+    display: flex;
 }
 .form__input-search {
     outline: none;
-    border-radius: 15px;
-    border: 2px solid #DADADA;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 2px solid #5C6D81;
     color: #333333;
     font-size: 17px;
-    padding: 10px 10px 10px 35px;    
-    width: 100%;
-}
-
-.form__input-search:hover {
-    transition: all 0.30s ease-in-out;
-    border-color: #E3E8EE;
-    box-shadow: 0 0 10px #E3E8EE;
-}
-
-.form__input-search:focus {
-    transition: all 0.30s ease-in-out;
-    border-color: #9ECAED;
-    box-shadow: 0 0 10px #9ECAED;
+    padding: 10px 10px 10px 15px;    
+    /* width: 100%; */
 }
 
 .form__search-icon {
-    color: #9E9EA7;
-    position: absolute;
-    left: 10px;
-    top: 13px;
+    font-size: 20px;
+}
+
+.form__submit {
+    background-color: #5C6D81;
+    color: #FFFFFF;
+    padding: 0px 20px 0px 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+}
+
+.form__submit:hover {
+    background-color: #FFFFFF;
+    color: #5C6D81;
+    border-color: #5C6D81;
 }
 
 .map {

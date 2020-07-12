@@ -12,3 +12,12 @@ const geoCodePlace = async (location, apiKey) => {
     let data = await response.json()
     return  data.results[0].locations[0].latLng
 }
+
+const form = document.querySelector('.form')
+const searchInput = document.querySelector('.form__input-search')
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    place = searchInput.value.trim()
+    console.log(place)
+})
