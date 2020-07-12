@@ -31,16 +31,40 @@ const getStaticMapUrl = (lat, lng, apiKey) => {
 }
 
 /**
- * Converts temperature from kelvin to degree celsius
+ * Converts temperature from Kelvin to Celsius
  * 
- * @param {number} temperature - tempeture in kelvin
+ * @param {number} temperature - tempeture in Kelvin
  * 
- * @return {number} temperature degrees in celsius 
+ * @return {number} temperature in Celsius 
  */
 const convertKelvinToCelsius = (temperature) => {
     const ABSOLUTE_ZERO = 273.15
     const celsius = (temperature * 100) - (ABSOLUTE_ZERO * 100)
     return Math.round(celsius) / 100
+}
+
+/**
+ * Converts temperature from Celsius to Fahrenheit
+ * 
+ * @param {number} temperature - tempeture in Celsius
+ * 
+ * @return {number} temperature in Fahrenheit
+ */
+const convertCelsiusToFahrenheit = (temperature) => {
+    const tempFahrenheit = (temperature * 1.8 * 100) + (32 * 100)
+    return Math.round(tempFahrenheit) / 100
+}
+
+/**
+ * Converts temperature from Fahrenheit to Celsius
+ * 
+ * @param {number} temperature - tempeture in Fahrenheit
+ * 
+ * @return {number} temperature in Celsius
+ */
+const convertFahrenheitToCelcius = (temperature) => {
+    const tempCelsius = ((temperature * 100) - (32 * 100)) * (5/9)
+    return Math.round(tempCelsius) / 100
 }
 
 /**
