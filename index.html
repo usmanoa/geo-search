@@ -10,83 +10,84 @@
 <body class="body">
     <form class="form">
         <div class="form__search-box">
-            <input class="form__input-search" type="search" placeholder="Search"/>
+            <input class="form__input-search" type="search" placeholder="Search" required />
             <button class="form__submit" type="submit">
                 <i class="fa fa-search form__search-icon"></i>
             </button>
             
         </div>
     </form>
-    <div class="map">
-
-    </div>
-    <div class="weather">
-        <div class="weather__city">
-            <p class="weather__city-name">
-                Abuja, Nigeria
-            </p>
+    <div class="map-weather-section">
+        <div class="map">
         </div>
-        <div class="weather__info-box">
-            <p class="weather__description">
-                Clear Sky
-            </p>
-            <button class="weather__temp-converter">
-                <span>Temperature in</span>
-                <sup>o</sup>
-                <span data-button-unit>f</span>
-            </button>
-            <div class="weather__row">
-                <div class="weather__reading">
-                    <p class="weather__label">Temperature</p>
-                    <div class="weather_condition">
-                        <img class="weather__icon" src="assets/thermometer.png" alt="thermometer icon" />
-                        <div class="weather__value-unit">
-                            <span data-temperature-value="temperature" >20</span>
-                            <span>
-                                <sup>o</sup>
-                                <span class="weather__unit" data-temperature-unit="">f</span>
-                            </span>
+        <div class="weather">
+            <div class="weather__city">
+                <p class="weather__city-name">
+                    Abuja, Nigeria
+                </p>
+            </div>
+            <div class="weather__info-box">
+                <p class="weather__description">
+                    Clear Sky
+                </p>
+                <button class="weather__temp-converter">
+                    <span>Temperature in</span>
+                    <sup>o</sup>
+                    <span data-button-unit>f</span>
+                </button>
+                <div class="weather__row">
+                    <div class="weather__reading">
+                        <p class="weather__label">Temperature</p>
+                        <div class="weather_condition">
+                            <img class="weather__icon" src="assets/thermometer.png" alt="thermometer icon" />
+                            <div class="weather__value-unit">
+                                <span data-temperature-value="temperature" >20</span>
+                                <span>
+                                    <sup>o</sup>
+                                    <span class="weather__unit" data-temperature-unit="">f</span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="weather__reading">
+                        <p class="weather__label">Humidity</p>
+                        <div class="weather_condition">
+                            <img class="weather__icon" src="assets/humidity.png" alt="humidity icon" />
+                            <div class="weather__value-unit">
+                                <span data-temperature-value="humidity" >68</span>
+                                <span class="weather__unit" >%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weather__row">
+                    <div class="weather__reading">
+                        <p class="weather__label">Pressure</p>
+                        <div class="weather_condition">
+                            <img class="weather__icon" src="assets/pressure.png" alt="pressure icon" />
+                            <div class="weather__value-unit">
+                                <span data-temperature-value="humidity" >1234</span>
+                                <span class="weather__unit">hPa</span>
+                            </div>
                         </div>
                     </div>
                     
-                </div>
-
-                <div class="weather__reading">
-                    <p class="weather__label">Humidity</p>
-                    <div class="weather_condition">
-                        <img class="weather__icon" src="assets/humidity.png" alt="humidity icon" />
-                        <div class="weather__value-unit">
-                            <span data-temperature-value="humidity" >68</span>
-                            <span class="weather__unit" >%</span>
+                    <div class="weather__reading">
+                        <p class="weather__label">Wind Speed</p>
+                        <div class="weather_condition">
+                            <img class="weather__icon" src="assets/wind.png" alt="wind speed icon" />
+                            <div class="weather__value-unit">
+                                <span data-temperature-value="wind-speed" >68</span>
+                                <span class="weather__unit">km/h</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-
-            <div class="weather__row">
-                <div class="weather__reading">
-                    <p class="weather__label">Pressure</p>
-                    <div class="weather_condition">
-                        <img class="weather__icon" src="assets/pressure.png" alt="pressure icon" />
-                        <div class="weather__value-unit">
-                            <span data-temperature-value="humidity" >1234</span>
-                            <span class="weather__unit">hPa</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="weather__reading">
-                    <p class="weather__label">Wind Speed</p>
-                    <div class="weather_condition">
-                        <img class="weather__icon" src="assets/wind.png" alt="wind speed icon" />
-                        <div class="weather__value-unit">
-                            <span data-temperature-value="wind-speed" >68</span>
-                            <span class="weather__unit">km/h</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
     

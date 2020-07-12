@@ -42,14 +42,23 @@
     border-color: #5C6D81;
 }
 
+.map-weather-section {
+    display: flex;
+}
+
 .map {
-    width: 100%;
+    width: 50%;
     height: 400px;
     background-color: #F4F4F4;
 }
 
-.weather {
+.map img {
     width: 100%;
+    height: 100%;
+}
+
+.weather {
+    width: 50%;
     background-image: url("../assets/weather.jpg");
     background-position: bottom;
     padding-bottom: 2rem;
@@ -128,3 +137,20 @@
 .weather__unit {
     font-size: 14px; 
  }
+
+
+
+@media (max-width: 700px) {
+    .map {
+        width: 100%;
+    }
+
+    .weather {
+        width: 100%;
+    }
+
+    .map-weather-section {
+        display: block;
+    }
+    
+}
