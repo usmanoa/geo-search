@@ -31,6 +31,19 @@ const getStaticMapUrl = (lat, lng, apiKey) => {
 }
 
 /**
+ * Converts temperature from kelvin to degree celsius
+ * 
+ * @param {number} temperature - tempeture in kelvin
+ * 
+ * @return {number} temperature degrees in celsius 
+ */
+const convertKelvinToCelsius = (temperature) => {
+    const ABSOLUTE_ZERO = 273.15
+    const celsius = (temperature * 100) - (ABSOLUTE_ZERO * 100)
+    return Math.round(celsius) / 100
+}
+
+/**
  * Gets weather condition of a location
  * 
  * @param {float} lat - latitude of location
@@ -45,7 +58,7 @@ const getWeatherCondition = async (lat, lng, apiKey) => {
     let data = await response.json()
     return {
         decription: data.weather[0].description,
-        temperature: data.main.temp,
+        temperature: convertKelvinToCelsius(data.main.temp),
         pressure: data.main.pressure,
         humidity: data.main.humidity,
         windSpeed: data.wind.speed
@@ -87,10 +100,19 @@ form.addEventListener('submit', (event) => {
                     temperatureValue.textContent = data.temperature
                     humiditySpan.textContent =  data.humidity
                     pressureSpan.textContent = data.pressure
-                    windSpan.textContent = data.windSpeed 
+                    windSpan.textContent = data.windSpeed
                 })
-                .catch(err=> alert('There has been an error'))
+                .catch(err=> {
+                    console.log('FROM WEATHER', err)
+                    alert('There has been an error')
+                })
 
         })
-        .catch(err=> alert('There has been an error'))
+        .catch(err=> {
+            console.log('FROM GEOCODE', err)
+            alert('There has been an error')
+        })
+
+
+
 })
