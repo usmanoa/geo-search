@@ -94,12 +94,13 @@ const searchInput = document.querySelector('.form__input-search')
 const map = document.querySelector('.map')
 const weatherLocation = document.querySelector('.weather__city-name')
 const weatherDescription = document.querySelector('.weather__description')
-const temperatureValue = document.querySelector('[data-temperature]')
+const temperatureValueSpan = document.querySelector('[data-temperature]')
 const humiditySpan = document.querySelector('[data-humidity]')
 const pressureSpan = document.querySelector('[data-pressure]')
 const windSpan = document.querySelector('[data-wind]')
-
-
+const temperatureConverterButton = document.querySelector('.weather__temp-converter')
+const temperatureConverterButtonUnitSpan = document.querySelector('[data-button-unit]')
+const temperatureUnitSpan = document.querySelector('[data-temperature-unit]')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -121,7 +122,7 @@ form.addEventListener('submit', (event) => {
                 .then(data => {
                     weatherLocation.textContent = place
                     weatherDescription.textContent = data.decription
-                    temperatureValue.textContent = data.temperature
+                    temperatureValueSpan.textContent = data.temperature
                     humiditySpan.textContent =  data.humidity
                     pressureSpan.textContent = data.pressure
                     windSpan.textContent = data.windSpeed
@@ -137,6 +138,19 @@ form.addEventListener('submit', (event) => {
             alert('There has been an error')
         })
 
+})
 
-
+temperatureConverterButton.addEventListener('click', () => {
+    if (temperatureConverterButtonUnitSpan.textContent === 'F') {
+        temperatureValueSpan.textContent = 
+            convertCelsiusToFahrenheit(parseFloat(temperatureValueSpan.textContent))
+        temperatureConverterButtonUnitSpan.textContent = 'C'
+        temperatureUnitSpan.textContent = 'F'
+    }
+    else if (temperatureConverterButtonUnitSpan.textContent === 'C') {
+        temperatureValueSpan.textContent =
+            convertFahrenheitToCelcius(parseFloat(temperatureValueSpan.textContent))
+        temperatureConverterButtonUnitSpan.textContent = 'F'
+        temperatureUnitSpan.textContent = 'C'
+    }
 })

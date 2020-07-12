@@ -89,6 +89,7 @@
 .weather__description {
     margin: 5px;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .weather__temp-converter {
@@ -132,6 +133,10 @@
 .weather__value-unit {
     padding-left: 5px;
     font-size: 1.2rem;
+}
+
+.weather__unit {
+    font-size: 14px;
 }
 
 
