@@ -136,14 +136,14 @@ form.addEventListener('submit', (event) => {
                 })
                 .catch(err=> {
                     loader.classList.toggle('hide')
-                    mapWeatherSection.classList.remove('hide')
+                    mapWeatherSection.classList.add('hide')
                     alert('There has been an error')
                 })
 
         })
         .catch(err=> {
             loader.classList.toggle('hide')
-            mapWeatherSection.classList.remove('hide')
+            mapWeatherSection.classList.add('hide')
             alert('There has been an error')
         })
 
