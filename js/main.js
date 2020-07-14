@@ -101,6 +101,8 @@ const windSpan = document.querySelector('[data-wind]')
 const temperatureConverterButton = document.querySelector('.weather__temp-converter')
 const temperatureConverterButtonUnitSpan = document.querySelector('[data-button-unit]')
 const temperatureUnitSpan = document.querySelector('[data-temperature-unit]')
+const loader = document.querySelector('.loading')
+const mapWeatherSection = document.querySelector('.map-weather-section')
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -109,6 +111,9 @@ form.addEventListener('submit', (event) => {
     if(!place) {
         return alert('You cannot search with an empty field')  
     }
+
+    mapWeatherSection.classList.add('hide')
+    loader.classList.toggle('hide')
 
     const mapQuestApiKey = prompt('Enter the MapQuest Api Key')
     const openWeatherMapApiKey = prompt('Enter the OpenWeather Api Key')
@@ -126,15 +131,19 @@ form.addEventListener('submit', (event) => {
                     humiditySpan.textContent =  data.humidity
                     pressureSpan.textContent = data.pressure
                     windSpan.textContent = data.windSpeed
+                    loader.classList.toggle('hide')
+                    mapWeatherSection.classList.toggle('hide')
                 })
                 .catch(err=> {
-                    console.log('FROM WEATHER', err)
+                    loader.classList.toggle('hide')
+                    mapWeatherSection.classList.remove('hide')
                     alert('There has been an error')
                 })
 
         })
         .catch(err=> {
-            console.log('FROM GEOCODE', err)
+            loader.classList.toggle('hide')
+            mapWeatherSection.classList.remove('hide')
             alert('There has been an error')
         })
 
