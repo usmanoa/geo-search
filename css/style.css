@@ -2,6 +2,21 @@
     margin: 0px;
 }
 
+.header {
+    background-color: #5C6D81;
+    display: flex;
+}
+
+.header__logo {
+    font-size: 1.3rem;
+    padding: 15px 10px;
+}
+
+.header__logo a {
+    text-decoration: none;
+    color: #F4F4F4;
+}
+
 .form {
     padding: 2rem 1rem;
 }
@@ -151,6 +166,10 @@
 
     .map-weather-section {
         display: block;
+    }
+
+    .weather__value-unit {
+        font-size: 1rem;
     }
     
 }
