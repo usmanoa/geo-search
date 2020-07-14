@@ -24,7 +24,7 @@ const geoCodePlace = async (location, apiKey) => {
  */
 const getStaticMapUrl = (lat, lng, apiKey) => {
     const url = `http://www.mapquestapi.com/staticmap/v5/map?key=`
-        + `${apiKey}&type=map&size=600,400&locations=${lat},${lng}|marker-sm-50318A-1`
+        + `${apiKey}&type=map&size=600,400&locations=${lat},${lng}|marker-7B0099`
         + `&scalebar=true&zoom=5&rand=-13&traffic=flow|cons|inc45253154`
     
     return url
