@@ -21,7 +21,10 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "gulp": "^4.0.2",
-    "gulp-eslint": "^6.0.0"
+    "gulp-csso": "^4.0.1",
+    "gulp-eslint": "^6.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-uglify-es": "^2.0.0"
   },
   "dependencies": {}
 }
