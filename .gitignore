@@ -1,0 +1,21 @@
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# production
+/build
+
+
+# Dependency directories
+node_modules/
+jspm_packages/
+package-lock.json
+.env
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
