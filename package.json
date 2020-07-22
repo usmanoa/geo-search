@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/usmanoa/geo-search#readme",
   "devDependencies": {
+    "browser-sync": "^2.26.10",
+    "del": "^5.1.0",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",

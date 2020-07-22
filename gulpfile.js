@@ -1,43 +1,60 @@
-const { dest, parallel, src } = require('gulp');
+const {
+    dest, parallel, series, src, watch,
+} = require('gulp');
 const htmlmin = require('gulp-htmlmin');
 const csso = require('gulp-csso');
 const eslint = require('gulp-eslint');
 const uglify = require('gulp-uglify-es').default;
+const del = require('del');
+const browserSync = require('browser-sync').create();
 
-function processHTML() {
-    return src('*.html')
-        .pipe(htmlmin({
-            collapseWhitespace: true,
-            removeComments: true,
-        }))
-        .pipe(dest('build'));
-}
+const processHTML = () => src('*.html')
+    .pipe(htmlmin({
+        collapseWhitespace: true,
+        removeComments: true,
+    }))
+    .pipe(dest('build'));
 
-function processCSS() {
-    return src('css/*.css')
-        .pipe(csso())
-        .pipe(dest('build/css'));
-}
+const processCSS = () => src('css/*.css')
+    .pipe(csso())
+    .pipe(dest('build/css'));
 
-function processAssets() {
-    return src('assets/*.*')
-        .pipe(dest('build/assets'));
-}
+const processAssets = () => src('assets/*.*')
+    .pipe(dest('build/assets'));
 
-function processJS() {
-    return src('js/*.js')
-        .pipe(uglify())
-        .pipe(dest('build/js'));
-}
+const processJS = () => src('js/*.js')
+    .pipe(uglify())
+    .pipe(dest('build/js'));
 
-function lint() {
-    return src('js/*.js')
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failOnError());
-}
+const lint = () => src('js/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
 
-exports.processHTML = processHTML;
-exports.processJS = processJS;
+const clean = () => del(['build']);
+
+const browserReload = (cb) => {
+    browserSync.init({
+        server: './',
+        port: 8080,
+        ui: {
+            port: 8081,
+        },
+    });
+    cb();
+};
+
+const watchFiles = () => {
+    watch('**/*.html').on('change', browserSync.reload);
+    watch('*.css').on('change', browserSync.reload);
+    watch('**/*.js').on('change', browserSync.reload);
+};
+
 exports.lint = lint;
-exports.build = parallel(processHTML, processCSS, processAssets, processJS);
+exports.build = series(
+    clean,
+    parallel(processHTML, processCSS, processAssets),
+    series(lint, processJS),
+);
+
+exports.default = series(browserReload, watchFiles);
