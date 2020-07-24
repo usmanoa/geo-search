@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable operator-linebreak */
 /**
  * Converts strings to geographic coordinates

@@ -13,25 +13,25 @@ const processHTML = () => src('src/*.html')
         collapseWhitespace: true,
         removeComments: true,
     }))
-    .pipe(dest('build'));
+    .pipe(dest('dist'));
 
 const processCSS = () => src('src/css/*.css')
     .pipe(csso())
-    .pipe(dest('build/css'));
+    .pipe(dest('dist/css'));
 
 const processAssets = () => src('src/assets/*.*')
-    .pipe(dest('build/assets'));
+    .pipe(dest('dist/assets'));
 
 const processJS = () => src('src/js/*.js')
     .pipe(uglify())
-    .pipe(dest('build/js'));
+    .pipe(dest('dist/js'));
 
 const lint = () => src('src/js/*.js')
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
 
-const clean = () => del(['build']);
+const clean = () => del(['dist']);
 
 const browserReload = (cb) => {
     browserSync.init({
@@ -57,4 +57,5 @@ exports.build = series(
     series(lint, processJS),
 );
 
+exports.start = series(browserReload, watchFiles);
 exports.default = series(browserReload, watchFiles);
