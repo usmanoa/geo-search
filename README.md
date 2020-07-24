@@ -2,7 +2,7 @@
 
 Geo-Search is a tool that allows people to search for places and extract information such as map and local weather conditions
 
-* [View Demo](ttps://usmanoa.github.io/geo-search/)
+* [View Demo](https://usmanoa.github.io/geo-search/)
 * [Report Bug](https://github.com/usmanoa/geo-search/issues)
   
 ## Getting Started
