@@ -9,7 +9,7 @@
  * @return {object} geographic coordinates
  */
 const geoCodePlace = async (location, apiKey) => {
-    const url = `http://www.mapquestapi.com/geocoding/v1/address?key=${apiKey}&location=${location}`;
+    const url = `https://www.mapquestapi.com/geocoding/v1/address?key=${apiKey}&location=${location}`;
     const response = await fetch(url);
     const data = await response.json();
     return data.results[0].locations[0].latLng;
