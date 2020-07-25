@@ -7,6 +7,9 @@ const eslint = require('gulp-eslint');
 const uglify = require('gulp-uglify-es').default;
 const del = require('del');
 const browserSync = require('browser-sync').create();
+const browserify = require('browserify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
 const processHTML = () => src('src/*.html')
     .pipe(htmlmin({
@@ -22,7 +25,13 @@ const processCSS = () => src('src/css/*.css')
 const processAssets = () => src('src/assets/*.*')
     .pipe(dest('dist/assets'));
 
-const processJS = () => src('src/js/*.js')
+const bundleJS = () => browserify({
+    entries: 'src/js/main.js',
+    debug: true,
+})
+    .bundle()
+    .pipe(source('main.js'))
+    .pipe(buffer())
     .pipe(uglify())
     .pipe(dest('dist/js'));
 
@@ -35,7 +44,7 @@ const clean = () => del(['dist']);
 
 const browserReload = (cb) => {
     browserSync.init({
-        server: './src',
+        server: './dist',
         port: 8080,
         ui: {
             port: 8081,
@@ -45,17 +54,26 @@ const browserReload = (cb) => {
 };
 
 const watchFiles = () => {
-    watch('**/*.html').on('change', browserSync.reload);
-    watch('**/*.css').on('change', browserSync.reload);
-    watch('**/*.js').on('change', browserSync.reload);
+    watch('src/*.html').on('change', processHTML);
+    watch('src/css/*.css').on('change', processCSS);
+    watch('src/js/*.js').on('change', bundleJS);
+
+    watch('dist/**/*.*').on('change', browserSync.reload);
 };
 
-exports.lint = lint;
-exports.build = series(
-    clean,
-    parallel(processHTML, processCSS, processAssets),
-    series(lint, processJS),
+const startProcess = series(
+    parallel(processHTML, processCSS, processAssets, bundleJS),
+    browserReload,
+    watchFiles,
 );
 
-exports.start = series(browserReload, watchFiles);
-exports.default = series(browserReload, watchFiles);
+const buildProcess = series(
+    clean,
+    parallel(processHTML, processCSS, processAssets),
+    series(lint, bundleJS),
+);
+
+exports.lint = lint;
+exports.start = startProcess;
+exports.default = startProcess;
+exports.build = buildProcess;
