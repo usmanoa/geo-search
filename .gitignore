@@ -1,12 +1,11 @@
 
 # dependencies
-/node_modules
 /.pnp
 .pnp.js
 
 # production
-/build
-/dist
+build/
+dist/
 
 
 # Dependency directories

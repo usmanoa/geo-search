@@ -18,6 +18,7 @@
   "homepage": "https://github.com/usmanoa/geo-search#readme",
   "devDependencies": {
     "browser-sync": "^2.26.10",
+    "browserify": "^16.5.1",
     "del": "^5.1.0",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
@@ -26,7 +27,9 @@
     "gulp-csso": "^4.0.1",
     "gulp-eslint": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-uglify-es": "^2.0.0"
+    "gulp-uglify-es": "^2.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {}
 }
