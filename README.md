@@ -2,10 +2,18 @@
 
 Geo-Search is a tool that allows people to search for places and extract information such as map and local weather conditions
 
-* [View Demo](https://usmanoa.github.io/geo-search/)
+* [View Demo](https://geo-search-places.netlify.app/)
 * [Report Bug](https://github.com/usmanoa/geo-search/issues)
   
 ## Getting Started
+
+### Prerequisites
+
+1. Get an API key at [MapQuest](https://developer.mapquest.com/)
+
+2. Get an API key at [OpenWeather](https://openweathermap.org/)
+
+3. After registering with the above listed services, setup your env varibles. Use the env.sample file as a guide
 
 ### Installation
 
@@ -17,6 +25,10 @@ git clone https://github.com/usmanoa/geo-search.git
 ```sh
 npm install
 ```
+3. Create a  '.env' file
+
+Create a .env file in the root directory of the project. A .env file stores sensitive credentials needed to run this project. After creating a .env file, copy the content of the .env.sample file and add the corresponding values.
+
 
 ### Starting
 
@@ -33,9 +45,12 @@ gulp lint
 ```
 If you don't get any output that means your linting passed.
 
-## Deployment
+### Build
+To get a build of the project run:
 
-Add additional notes about how to deploy this on a live system
+```sh
+gulp build
+```
 
 ## Built With
 
