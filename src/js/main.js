@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 /* eslint-disable no-alert */
 /* eslint-disable operator-linebreak */
 /**
@@ -116,15 +118,12 @@ form.addEventListener('submit', (event) => {
     mapWeatherSection.classList.add('hide');
     loader.classList.toggle('hide');
 
-    const mapQuestApiKey = prompt('Enter the MapQuest Api Key');
-    const openWeatherMapApiKey = prompt('Enter the OpenWeather Api Key');
-
-    return geoCodePlace(place, mapQuestApiKey)
+    return geoCodePlace(place, process.env.MAPQUEST_API_KEY)
         .then((coord) => {
-            const mapUrl = getStaticMapUrl(coord.lat, coord.lng, mapQuestApiKey);
+            const mapUrl = getStaticMapUrl(coord.lat, coord.lng, process.env.MAPQUEST_API_KEY);
             map.innerHTML = `<img src=${mapUrl}, alt="map"/>`;
 
-            getWeatherCondition(coord.lat, coord.lng, openWeatherMapApiKey)
+            getWeatherCondition(coord.lat, coord.lng, process.env.OPENWEATHERMAP_API_KEY)
                 .then((data) => {
                     weatherLocation.textContent = place;
                     weatherDescription.textContent = data.decription;
