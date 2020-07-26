@@ -80,7 +80,7 @@ const startProcess = series(
 const buildProcess = series(
     clean,
     parallel(processHTML, processCSS, processAssets),
-    series(lint, bundleJS),
+    bundleJS,
 );
 
 exports.lint = lint;
