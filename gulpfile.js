@@ -10,6 +10,8 @@ const browserSync = require('browser-sync').create();
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const envify = require('envify/custom');
+require('dotenv').config();
 
 const processHTML = () => src('src/*.html')
     .pipe(htmlmin({
@@ -25,15 +27,23 @@ const processCSS = () => src('src/css/*.css')
 const processAssets = () => src('src/assets/*.*')
     .pipe(dest('dist/assets'));
 
-const bundleJS = () => browserify({
-    entries: 'src/js/main.js',
-    debug: true,
-})
-    .bundle()
-    .pipe(source('main.js'))
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(dest('dist/js'));
+const bundleJS = (cb) => {
+    browserify({
+        entries: 'src/js/main.js',
+        debug: true,
+    })
+        .transform(envify({
+            MAPQUEST_API_KEY: process.env.MAPQUEST_API_KEY,
+            OPENWEATHERMAP_API_KEY: process.env.OPENWEATHERMAP_API_KEY,
+        }))
+        .bundle()
+        .pipe(source('main.js'))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(dest('dist/js'));
+
+    cb();
+}
 
 const lint = () => src('src/js/*.js')
     .pipe(eslint())
